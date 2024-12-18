@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Direction Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f7f6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden; /* Prevent overall page scroll */
+    }
+    .quiz-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+      height: 90%; /* Adjust height to fit viewport */
+      overflow-y: auto; /* Enable scrolling */
+    }
+    .quiz-container h1 {
+      font-size: 28px;
+      color: #333;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 10;
+      padding: 10px 0;
+    }
+    .question {
+      margin: 15px 0;
+      font-weight: bold;
+      color: #555;
+    }
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+    .options li {
+      margin: 10px 0;
+    }
+    .options input {
+      margin-right: 10px;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 10px 0;
+      background-color: #ff5c8d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .submit-btn:hover {
+      background-color: #e04979;
+    }
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      color: #28a745;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>One Direction Quiz</h1>
+    <form id="quizForm">
+      <!-- Questions 1 to 10 -->
+      <div class="question">
+        1. Who is the oldest member of One Direction?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q1" value="correct">Louis Tomlinson</li>
+        <li><input type="radio" name="q1" value="wrong">Harry Styles</li>
+        <li><input type="radio" name="q1" value="wrong">Niall Horan</li>
+      </ul>
+      <div class="question">
+        2. What year was One Direction formed?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q2" value="wrong">2009</li>
+        <li><input type="radio" name="q2" value="correct">2010</li>
+        <li><input type="radio" name="q2" value="wrong">2011</li>
+      </ul>
+      <div class="question">
+        3. What was One Direction's first single?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q3" value="correct">What Makes You Beautiful</li>
+        <li><input type="radio" name="q3" value="wrong">Story of My Life</li>
+        <li><input type="radio" name="q3" value="wrong">Little Things</li>
+      </ul>
+      <div class="question">
+        4. Which album features the song "Drag Me Down"?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q4" value="wrong">Midnight Memories</li>
+        <li><input type="radio" name="q4" value="correct">Made in the A.M.</li>
+        <li><input type="radio" name="q4" value="wrong">FOUR</li>
+      </ul>
+      <div class="question">
+        5. Who left the band in 2015?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q5" value="correct">Zayn Malik</li>
+        <li><input type="radio" name="q5" value="wrong">Niall Horan</li>
+        <li><input type="radio" name="q5" value="wrong">Liam Payne</li>
+      </ul>
+      <div class="question">
+        6. What was One Direction's last album before their hiatus?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q6" value="wrong">FOUR</li>
+        <li><input type="radio" name="q6" value="correct">Made in the A.M.</li>
+        <li><input type="radio" name="q6" value="wrong">Take Me Home</li>
+      </ul>
+      <div class="question">
+        7. Which One Direction member is from Ireland?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q7" value="correct">Niall Horan</li>
+        <li><input type="radio" name="q7" value="wrong">Harry Styles</li>
+        <li><input type="radio" name="q7" value="wrong">Zayn Malik</li>
+      </ul>
+      <div class="question">
+        8. What is Harry Styles' favorite color?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q8" value="wrong">Red</li>
+        <li><input type="radio" name="q8" value="correct">Orange</li>
+        <li><input type="radio" name="q8" value="wrong">Blue</li>
+      </ul>
+      <div class="question">
+        9. Which One Direction album has the song "Night Changes"?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q9" value="wrong">Take Me Home</li>
+        <li><input type="radio" name="q9" value="correct">FOUR</li>
+        <li><input type="radio" name="q9" value="wrong">Up All Night</li>
+      </ul>
+      <div class="question">
+        10. Which member of One Direction auditioned for "The X Factor" twice?
+      </div>
+      <ul class="options">
+        <li><input type="radio" name="q10" value="wrong">Harry Styles</li>
+        <li><input type="radio" name="q10" value="wrong">Louis Tomlinson</li>
+        <li><input type="radio" name="q10" value="correct">Liam Payne</li>
+      </ul>
+      <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const form = document.getElementById('quizForm');
+      const resultDiv = document.getElementById('result');
+      let score = 0;
+
+      const answers = form.querySelectorAll('input[type="radio"]:checked');
+      answers.forEach(answer => {
+        if (answer.value === 'correct') {
+          score++;
+        }
+      });
+
+      resultDiv.style.display = 'block';
+      resultDiv.textContent = `You got ${score} out of 10 questions correct!`;
+    }
+  </script>
+</body>
+</html>
+
+
